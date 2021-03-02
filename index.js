@@ -3,8 +3,7 @@ const conectarDB=require('./config/db');
 const cors =require( 'cors')
 const app =express();
 
-//pUERTO DE LA APP
-const port=process.env.port||4000;
+
 
 //Conectar a la base de datos
 conectarDB();
@@ -13,7 +12,8 @@ app.use(cors());
 
 // Habilitar express.json
 app.use(express.json({extended:true}));
-
+//pUERTO DE LA APP
+const port=process.env.port||4000;
 //Importar rutas
 app.use('/api/usuarios',require('./routes/usuarios'));
 app.use('/api/auth',require('./routes/auth'));
